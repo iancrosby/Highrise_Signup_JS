@@ -7,6 +7,10 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
+@app.route('/add_hr')
+def add_hr():
+	name = request.args.get('name')
+	return jsonify(result=name + " success!")
 
 
 if __name__ == '__main__':
