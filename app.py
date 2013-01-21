@@ -28,25 +28,25 @@ def index():
 def add_hr():
 	'''Receives a signup request from JSON, sends it to Highrise with attached signup tasks'''
 	
-	p = pyrise.Person()
-	
-	
 	#Receive JSON data
-	cname = request.args.get('cname')
+	name = request.args.get('name')
 	email = request.args.get('email')
 	company = request.args.get('company')
 	country = request.args.get('country')
 	
-	p.first_name = cname
-	p.save()
-	
-	#first_name = cname[:cname.find(" ")]
-	#last_name = cname[cname.find(" ")+1:]
+	#Split name into first and last name. If there's no space, then we don't split
+	splitter = name.find(" ")
+	if splitter == -1:
+		first_name = name
+		last_name = ""
+	else:
+		first_name = name[:splitter]
+		last_name = name[splitter+1:]
 	
 	#Create new person in Highrise
-	#p = pyrise.Person()
-	p.first_name = cname
-	#p.last_name = last_name		
+	p = pyrise.Person()
+	p.first_name = first_name
+	p.last_name = last_name		
 	p.contact_data.email_addresses.append(pyrise.EmailAddress(address=email))
 	
 	p.save()

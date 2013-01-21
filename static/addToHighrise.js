@@ -1,10 +1,10 @@
 
 
-function addToHighrise(cname, email, company, country) {
+function addToHighrise(name, email, company, country) {
 
 // $.getJSON('http://sheltered-island-3519.herokuapp.com' + '/add_to_highrise', {
 $.getJSON($SCRIPT_ROOT + '/add_to_highrise', {
-	cname: cname,
+	name: name,
 	email: email,
 	company: company,
 	country: country
@@ -13,5 +13,5 @@ $.getJSON($SCRIPT_ROOT + '/add_to_highrise', {
 
 };
 	
-addToHighrise("Ian Crosby", "a@a.cc", "USCo", "USofA")
+addToHighrise("IanCrosby", "X@X.cc", "USCo", "USofA")
 
