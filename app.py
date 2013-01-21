@@ -29,13 +29,17 @@ def add_hr():
 	'''Receives a signup request from JSON, sends it to Highrise with attached signup tasks'''
 	
 	p = pyrise.Person()
-	
+	cname = "FAIL"
 	
 	#Receive JSON data
-	cname = request.args.get('cname')
-	email = request.args.get('email')
-	company = request.args.get('company')
-	country = request.args.get('country')
+	cname = request.args.get('first_name')
+	
+	p.first_name = cname
+	p.save()
+	
+	#email = request.args.get('email')
+	#company = request.args.get('company')
+	#country = request.args.get('country')
 	
 	p.first_name = cname
 	p.save()
