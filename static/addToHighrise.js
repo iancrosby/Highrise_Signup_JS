@@ -13,3 +13,5 @@ $.getJSON('http://sheltered-island-3519.herokuapp.com' + '/add_to_highrise', {
 };
 	
 addToHighrise("Ian", "Crosby", "a@a.a", "USCo", "USofA")
+
+alert("script done")
