@@ -26,21 +26,27 @@ def index():
 
 @app.route('/add_to_highrise')
 def add_hr():
-	'''Receives an signup request from JSON, sends it to Highrise with attached signup tasks'''
-
+	'''Receives a signup request from JSON, sends it to Highrise with attached signup tasks'''
+	
+	p = pyrise.Person()
+	
+	
 	#Receive JSON data
-	cname = request.args.get('name')
+	cname = request.args.get('cname')
 	email = request.args.get('email')
 	company = request.args.get('company')
 	country = request.args.get('country')
 	
-	first_name = cname[:cname.find(" ")]
-	last_name = cname[cname.find(" ")+1:]
+	p.first_name = cname
+	p.save()
+	
+	#first_name = cname[:cname.find(" ")]
+	#last_name = cname[cname.find(" ")+1:]
 	
 	#Create new person in Highrise
-	p = pyrise.Person()
-	p.first_name = first_name
-	p.last_name = last_name		
+	#p = pyrise.Person()
+	p.first_name = cname
+	#p.last_name = last_name		
 	p.contact_data.email_addresses.append(pyrise.EmailAddress(address=email))
 	
 	p.save()
