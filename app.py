@@ -26,8 +26,9 @@ def index():
 
 @app.route('/add_to_highrise')
 def add_hr():
+	pass
 	'''Receives a signup request from JSON, sends it to Highrise with attached signup tasks'''
-	
+	'''
 	#Receive JSON data
 	name = request.args.get('name')
 	email = request.args.get('email')
@@ -64,7 +65,7 @@ def add_hr():
 		t.subject_type = 'Party'	
 		t.save()
 	
-	return jsonify(result=first_name + " " + last_name + " " + country)
+	return jsonify(result=first_name + " " + last_name + " " + country)'''
 
 
 if __name__ == '__main__':
